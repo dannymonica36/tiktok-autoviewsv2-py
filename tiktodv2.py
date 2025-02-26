@@ -7,7 +7,7 @@ import time
 chrome_options = webdriver.ChromeOptions()
 #chrome_options.add_argument("--headless")
 chrome_options.add_argument("--log-level=3")
-driver = webdriver.Chrome(r"chromedriver.exe", options=chrome_options)
+driver = webdriver.Chrome(service=Service("chromedriver.exe"), options=chrome_options)
 driver.set_window_size(1024, 650)
 
 """

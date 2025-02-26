@@ -3,11 +3,17 @@ from selenium.webdriver.support.ui import Select
 import pyfiglet
 from os import system
 import time
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 chrome_options = webdriver.ChromeOptions()
 #chrome_options.add_argument("--headless")
 chrome_options.add_argument("--log-level=3")
-driver = webdriver.Chrome(r"chromedriver.exe", options=chrome_options)
+
+# Solución al error: se usa Service para manejar ChromeDriver
+service = Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=service, options=chrome_options)
+
 driver.set_window_size(1024, 650)
 
 """
